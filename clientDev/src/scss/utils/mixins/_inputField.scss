@@ -1,0 +1,33 @@
+@import './disabled';
+@mixin inputField{
+	position: relative;
+	min-height: calc($field-height - 0.25rem);
+	height: $field-height;
+	width: 100%;
+	outline: none;
+	border: 0.2rem solid get-theme-color('border--input');
+	border-radius: 0.3rem;
+	padding: 1.4rem 1.2rem;
+	padding-bottom:0.7rem;
+	transition: all $transition-time ease;
+	background-color: get-theme-color('background--input');
+	color:get-theme-color('font-input');
+	font-weight: bold;
+	box-sizing: border-box;
+	&:focus {
+		&:valid {
+			border-color: get-theme-color('valid');
+		}
+		&:invalid{
+			border-color: get-theme-color('invalid');
+		}
+		border-color:  get-theme-color('border--input');
+	}
+	&:invalid, 
+	&:valid{
+		border-color:  get-theme-color('border--input');
+	}
+	&:disabled{
+		@include disabled;
+	}
+}

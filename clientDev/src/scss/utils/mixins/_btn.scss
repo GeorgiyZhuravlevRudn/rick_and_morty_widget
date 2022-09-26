@@ -1,0 +1,29 @@
+@import './disabled';
+@mixin btn($bg:#000, $fontColor:#fff, $fontSize:1rem, $shadow:none){
+	.btn{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position:relative;
+		border: none;
+		padding: 1rem 2rem;
+		border-radius: $border-radius;
+		font-size: $fontSize;
+		background: $bg;
+		transition: all $transition-time ease;
+		font-family:$element-font;
+		font-weight: 500;
+		color: $fontColor;
+		box-shadow: $shadow;
+		&:disabled{
+			border-color:transparent;
+			&:hover{
+				transform: none;
+				border-color:transparent;
+			}
+		}
+	}
+	.btn span {
+		pointer-events: none;
+	}	
+}

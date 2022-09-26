@@ -1,0 +1,64 @@
+@import './scroll';
+@mixin modalWindow{
+	.modal__wrap {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding:0;
+		width: 100%;
+		height:100%;
+		top:0;
+		left:0;
+		z-index: get-z-index('modal');
+		background-color: get-theme-color('background--modal-wrap');
+		opacity: 1;
+		overflow-y: auto;
+		@include scroll(0.7rem,2rem,5px,transparent,get-theme-color('scrollbar'),none);
+	}
+	.modal{
+		box-shadow: get-theme-shadow('yellow');
+		border-radius: $border-radius;
+		position: relative;
+		padding: 0;
+		margin:0;
+		width:auto;
+		height:auto;
+		z-index: get-z-index('modal');
+		background-color: get-theme-color('background--modal');
+	}
+	.modal.active{
+		display: flex;
+	}
+	.position--right{
+		margin-right:0;
+		margin-left:auto;
+		max-width:70%;
+		padding:4rem;
+		height:100%;
+		& .form{
+			top: 0;
+			height:100%;
+			margin:0;
+			margin-left:auto;
+			width:auto;
+			transition: all .4s ease;
+		}
+	}
+	.position--right > .form{
+		& > button{
+			top:1rem;
+			left:1rem;
+		}
+	}
+	@media only screen and (max-width:$tablet){
+		.modal__wrap{
+			//overflow-y:hidden;
+		}
+		.modal{
+			padding:0;
+			margin:0;
+		}
+	}
+}

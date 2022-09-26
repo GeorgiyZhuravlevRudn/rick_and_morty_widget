@@ -1,0 +1,25 @@
+.form__field-wrap {
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+.form__field-wrap:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.form__field-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: rgba(0, 0, 0, 0.521);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form__field-label--active {
+  font-size: 1rem;
+  transform: translateY(-0.9rem);
+  color: rgba(128, 128, 128, 0.747);
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJGb3JtRmllbGQvRm9ybUZpZWxkLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQztFQUNBO0VBQ0E7OztBQUVEO0VBQ0M7OztBQUVEO0VBQ0M7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFFRDtFQUNDO0VBQ0E7RUFDQSIsImZpbGUiOiJGb3JtRmllbGQvRm9ybUZpZWxkLm1vZHVsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybV9fZmllbGQtd3JhcCB7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0cGFkZGluZzogMDtcblx0d2lkdGg6IDEwMCU7XG59XG4uZm9ybV9fZmllbGQtd3JhcDpub3QoOmZpcnN0LWNoaWxkKSB7XG5cdG1hcmdpbi10b3A6IDFyZW07XG59XG4uZm9ybV9fZmllbGQtbGFiZWwge1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogMXJlbTtcblx0bGVmdDogMXJlbTtcblx0Y29sb3I6IHJnYmEoMCwgMCwgMCwgMC41MjEpO1xuXHR0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuXHRwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cbi5mb3JtX19maWVsZC1sYWJlbC0tYWN0aXZlIHtcblx0Zm9udC1zaXplOiAxcmVtO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTAuOXJlbSk7XG5cdGNvbG9yOiByZ2JhKDEyOCwgMTI4LCAxMjgsIDAuNzQ3KTtcbn1cblxuIl19 */

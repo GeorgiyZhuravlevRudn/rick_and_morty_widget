@@ -1,0 +1,33 @@
+@function get-theme-color($key){
+	@return map-get($theme-colors, $key);
+}
+@function get-theme-gradient($key){
+	@return map-get($theme-gradients, $key);
+}
+@function get-theme-shadow($key){
+	@return map-get($theme-shadows, $key);
+}
+@function get-font-size($key){
+	@return map-get($font-size, $key);
+}
+@function get-spacer($key){
+	@return map-get($theme-spacers, $key);
+}
+@function get-z-index($key){
+	@return map-get($z-index, $key);
+}
+@function get-padding($key){
+	@return map-get($padding, $key);
+}
+@function get-navbar-w($key){
+	@return map-get($navbar-width, $key);
+}
+@function get-mobile-size($screen){
+	@if($screen < 768) {
+		@return calc(10px + 13 * (100vw - 375px) / 447);
+	} @else if($screen >= 768 and $screen < 1023){
+		@return calc(10px + 4 * (100vw - 768px) / 255);
+	} @else if($screen >= 1024 and $screen < 1360){
+		@return calc(8px + 2 * (100vw - 1024px) / 336);
+	}
+}

@@ -1,0 +1,408 @@
+@import '../../utils/functions',
+	'../../utils/variables',
+	'../../utils/breakpoints',
+	'../../utils/mixins/arrow',
+	'../../utils/mixins/border',
+	'../../utils/mixins/cleanBtn',
+	'../../utils/mixins/disabled',
+	'../../utils/mixins/btn';
+
+@include btn(
+	get-theme-color('btn-default'),
+	get-theme-color('font-base'), 
+	get-font-size('btn'), 
+);
+.btn{
+	@include custom-border(0.2rem,'background--red', 'full')
+}
+.btn--interactive{
+	position: absolute;
+	padding: 0;
+	border-radius: 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	transition:all $transition-time ease;
+}
+.btn--interactive > span {
+	position: relative;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.btn--interactive > span::before, 
+.btn--interactive > span::after {
+	position: absolute;
+	content: "";
+	width:0.06rem;
+	height:1.2rem;
+	transform: rotate(90deg);
+	background-color:get-theme-color('btn-span-color');
+}
+.btn--interactive > span::after {
+	transform: rotate(0deg);
+}
+.btn--response{
+	display: flex;
+	justify-content: center;
+	margin-top:1rem;
+	max-width: 10rem;
+}
+.btn--arrow:hover{
+	transform: none;
+	background-color: get-theme-color('btn-add--active');
+	box-shadow: none;
+}
+.btn--nav-page{
+	background-color: transparent;
+	border-radius: 50%;
+	padding: 0;
+	width: 2.3rem;
+	height: 2.3rem;
+	@include custom-border(0.1rem, get-theme-color('btn-default'),'full');
+}
+.btn--nav-page > .btn-span{
+	font-family: $element-font;
+}
+.btn--nav-page:hover{
+	
+}
+.btn--redo{
+	background-color: get-theme-color('btn-close');
+}
+.btn--redo:hover{
+	background-color: get-theme-color('btn-close--active');
+}
+.btn--active{
+	border-color:transparent;
+	background-color: get-theme-color('btn-default--active');
+}
+.btn--arrow{
+	padding: 0;
+	border: 0;
+	width: auto;
+	height: auto;
+	border-radius:50%;
+	transform: none;
+	background-color: transparent;
+	box-shadow: none;
+	& > .btn-span{
+		&::after{
+			transition: all $transition-time ease;
+		}
+	}
+	//background-color: get-theme-color('btn-default');
+}
+.btn--arrow:hover{
+	background-color: transparent;
+	border-color:get-theme-color('btn-default');
+	& > .btn-span{
+		&::after{
+			border-color:get-theme-color('btn-default');
+		}
+	}
+}
+.btn--arrow .btn-span{
+	position: relative;
+	width: 0.8rem;
+	height: 1rem;
+	@include arrow-down(0.6rem,0.15rem, get-theme-color('btn'));
+}
+.btn--custom,
+.btn--custom-red{
+	position:relative;
+	z-index: 2;
+  	//line-height: 40px;
+	&::before,
+	&::after{
+		position: absolute;
+		opacity:0;
+		content: "";
+		width: 0%;
+		height: 0%;
+		z-index: -3;
+		transition: all $transition-time ease;
+		border-radius: $border-radius;
+	}
+	&::after{
+		bottom: 0;
+		right: 0;
+		@include custom-border(0.1rem, 'border--default', 'full');
+	}
+	&::before{
+		top: 0;
+		left: 0;
+		@include custom-border(0.1rem, 'border--default', 'full');
+	}
+	&:hover{
+		border-color: transparent;
+		background-color: transparent;
+		transform: none;
+		color:black;
+		&:after,
+		&:before{
+			opacity:1;
+			border-color: get-theme-color('border--active');
+			height: 100%;
+			width: 100%;
+		}
+		&:after{
+			bottom: -0.2rem;
+			right: 0.2rem;
+		}
+		&:before{
+			left: 0.2rem;
+			top: -0.2rem;
+		}
+	}
+}
+.btn--custom-red{
+	&:hover{
+		&:after,
+		&:before{
+			border-color: get-theme-color('invalid');
+		}
+	}
+
+}
+.btn--close,
+.btn--close-navbar{
+	// @include clean-btn(2.4rem, 1em, #fff, 'rm');
+	width:2.4rem;
+	height: 2.4rem;
+	& > span::before, 
+	& > span::after {
+		display: none;
+	}
+	& > .btn-span{
+		line-height: 1;
+		width: auto;
+		height: auto;
+		color:get-theme-color('btn-close');
+		font-weight: 300;
+		font-size:1.2rem;
+		transition: all $transition-time ease;
+	}
+	right: 1.5rem;
+	top: 1.5rem;
+	background-color:  transparent;
+	box-shadow: none;
+	@include custom-border(0.1rem, 'btn-close', 'full');
+	&:hover{
+		transform: none;
+		background-color:  get-theme-color('btn-close');
+		border-color: transparent;
+		& span{
+			
+			color:#fff;
+		}
+	}
+}
+.btn--complete{
+	@include clean-btn(3rem, 1.1em, get-theme-color('btn-complete--active'), 'complete');
+	@include custom-border(0.1rem, 'border--default', 'full');
+	right: 1rem;
+	bottom: 1rem;
+	&:hover{
+		transform: none;
+		border-color: get-theme-color('btn-complete--active');
+	}
+}
+.btn--toggle{
+	@include clean-btn(2.5rem, 1.2rem, get-theme-color('font-btn'), 'add');
+	@include custom-border(0.1rem, 'border--default', 'full');
+	box-shadow: none;
+	background-color: transparent;
+	padding: 0;
+	position: static;
+	&:hover{
+		box-shadow: none;
+		transform: none;
+	}
+}
+.btn--rm{
+	@include clean-btn(1.2rem, 0.6em, #fff, 'rm');
+	@include custom-border(0.1rem, 'border--default', 'full');
+	top:-0.5rem;
+	right:-0.5rem;
+	background-color: get-theme-color('invalid');
+	&:hover{
+		transform: none;
+		background-color: transparent;
+		border-color: get-theme-color('btn-close--active');
+		& span::before,span::after{
+			background-color: get-theme-color('invalid');
+		}
+	}
+}
+.btn--navbar-fixed{
+	//position: relative;
+	transform: rotate(270deg);
+	z-index: get-z-index('navbar-btn');
+	&::after{
+		transform: none;
+	}
+}
+.btn--link{
+	padding:0;
+	border:none;
+	transition: none;
+	color:#fff;
+	font-size:0.8rem;
+	-webkit-appearance: none;
+	padding:0;
+	font-weight:400;
+	text-align: start;
+	background-color: transparent;
+	border:none;
+	box-shadow: none;
+	&:hover{
+		transform: none;
+	}
+}
+.btn--dotted{
+	max-width:0.4rem;
+	min-height:1rem;
+	background-color: transparent;
+	border:none;
+	padding: 0;
+	&:hover{
+		transform: none;
+	}
+	& > span{
+		position: relative;
+		width:0.35rem;
+		height: 0.35rem;
+		border-radius: 50%;
+		background-color: black;
+		&::after,
+		&::before{
+			position: absolute;
+			content: "";
+			width:0.35rem;
+			height: 0.35rem;
+			border-radius: 50%;
+			transform:none;
+			background-color: black;
+		}
+		&::after{
+			left:0;
+			right:0;
+			top:0.5rem;
+		}
+		&::before{
+			left:0;
+			right:0;
+			bottom:0.5rem;
+		}
+	}
+}
+@media only screen and (max-width:$tablet){
+	.btn{
+		padding:1.1rem 0.8rem;
+		&:hover{
+			transform: none;
+			color:none;
+			//background-color:get-theme-color('btn-default');
+			//border-color:get-theme-color('btn-default');
+		}
+	}
+	.btn--interactive{
+		padding:0;
+		min-width: $btn--interactive-size;
+		min-height:$btn--interactive-size;
+		& > span{
+			height: $btn--interactive-size - 1.2rem;
+			width:$btn--interactive-size - 1.2rem ;
+		}
+	}
+	.btn--link{
+		font-size:1.5rem;
+		padding:0;
+		width:100%;
+		border:none;
+		box-shadow: none;
+	}
+	.btn--interactive > span::before, 
+	.btn--interactive > span::after {
+		//top:0.4rem;
+		position: absolute;
+		content: "";
+		width:0.07rem;
+		height: 1.8rem;
+		&:hover{
+			background-color:get-theme-color('font-base');
+		}
+		//background-color:get-theme-color('btn-span-color');
+	}
+	.btn--toggle{
+		position: static;
+		border:none;
+		background-color: transparent;
+		padding:0;
+		&:hover{
+			transform: none;
+			border-color:none;
+		}
+	}
+	.btn--menu{
+		position: static;
+		border-radius:0;
+		border:0;
+		background-color: transparent;
+		& > span{
+			width:0.07rem;
+			height: 2.5rem;
+			background-color: black;
+			transform:rotate(90deg);
+			&::after,
+			&::before{
+				transform:rotate(0deg);
+			}
+			&::after{
+				left:0.75rem;
+			}
+			&::before{
+				right:0.75rem;
+			}
+		}
+		z-index:get-z-index('header-btn');
+		//@include arrow-down(3rem,0.5rem, get-theme-color('border--primary'));
+	}
+	.btn--close{
+		top:get-spacer(4);
+		right:get-spacer(4);
+		z-index:get-z-index('modal-btn');
+		min-width:2.5rem;
+		min-height: 2.5rem;
+		& span{
+			height: 1.5rem;
+			width:1.5rem;
+			&::before,
+			&::after{
+				top:0.13rem;
+				height:1.3rem;
+			}
+		}
+		//@include arrow-down(3rem,0.5rem, get-theme-color('border--primary'));
+	}
+	.btn--rm{
+		padding:0;
+		width:2.3rem;
+		height: 2.3rem;
+		& span{
+			height: 1.5rem;
+			width:1.5rem;
+			&::before,
+			&::after{
+				top:0.3rem;
+				height:1rem;
+			}
+		}
+	}
+	.btn--dotted{
+		padding:0;
+		&:hover{
+			background-color: transparent;
+		}
+	}
+}

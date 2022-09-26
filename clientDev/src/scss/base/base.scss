@@ -1,0 +1,146 @@
+//@include focus-visible;
+@import'./fonts';
+@import'./typography';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  background: #fff; // in some versions Opera background is black by default
+
+  @media screen and (max-width: 767px) {
+    font-size: calc(14px + 13 * (100vw - 375px) / 447);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: calc(10px + 4 * (100vw - 768px) / 255);
+  }
+
+  @media (min-width: 1024px) and (max-width: 1360px) {
+    font-size: calc(8px + 2 * (100vw - 1024px) / 336);
+  }
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+ul {
+	margin: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+  
+
+  strong,
+  b {
+	font-weight: 700;
+  }
+  
+  
+  a {
+	color: inherit;
+	text-decoration: none;
+  }
+  
+  button,
+  label {
+	cursor: pointer;
+  }
+  
+  picture {
+	img {
+	  display: block;
+	}
+  }
+
+input{
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;
+  }
+  input[type=checkbox]{
+	-webkit-appearance:checkbox;
+	-moz-appearance: checkbox;
+	appearance: checkbox;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type='time']::-webkit-calendar-picker-indicator{
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+input[type=time]::-webkit-clear-button,
+input[type=time]::-webkit-inner-spin-button {
+	display: none;
+  }
+  
+
+  // base typography
+  h1,
+  ._visually-h1 {
+	@include h1;
+  }
+  
+  h2,
+  ._visually-h2 {
+	@include h2;
+  }
+  
+  h3,
+  ._visually-h3 {
+	@include h3;
+  }
+  
+  h4,
+  ._visually-h4 {
+	@include h4;
+  }
+  
+  h1,
+  ._visually-h1,
+  h2,
+  ._visually-h2,
+  h3,
+  ._visually-h3,
+  h4,
+  ._visually-h4 {
+  
+  }
+  h1,h2,h3,h4,h5,h6{
+	  font-family: $title-font;
+  }
+  p {
+	@include p;
+  }
+  .title{
+	margin:0;
+	padding:0;
+	font-family:$title-font;
+	font-size:get-font-size('h1');
+	font-weight:500;
+	margin-bottom: 1rem;
+	pointer-events: none;
+	letter-spacing: 1px;
+}

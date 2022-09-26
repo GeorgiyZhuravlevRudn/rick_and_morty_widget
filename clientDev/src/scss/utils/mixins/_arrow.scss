@@ -1,0 +1,35 @@
+// arrow down mixin; arrow up when element have class .is-active or .-active
+// how to use:
+// @include arrow-down(10px, 2px, #fff);
+@mixin arrow-down($size: 10px, $width: 2px, $color: #000) {
+	&::after {
+	  position: absolute;
+	  top: 50%;
+	  right: 0;
+	  width: #{$size};
+	  height: #{$size};
+	  margin-top: calc(#{$size} * 1.41 / 2 * -1);
+	  margin-right: calc(#{$size} / 5);
+	  border-right: $width solid $color;
+	  border-bottom: $width solid $color;
+	  transform: rotate(45deg);
+	  content: '';
+  
+	  @content;
+	}
+  
+	&.is-active,
+	&._active {
+	  &::after {
+		margin-top: calc(#{$size} * 1.41 / 2 * -1 + #{$size}/ 2);
+		transform: rotate(-135deg);
+	  }
+	}
+	@media only screen and (max-width:$tablet){
+		&::after {
+			width:calc($size * 1.2);
+			height:calc($size * 1.2);
+		}
+	}
+}
+  

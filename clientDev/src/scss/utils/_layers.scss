@@ -1,0 +1,7 @@
+$base_project_layer: 20;
+
+$layer-page-z-index: $base_project_layer + 1;
+$layer-dropdown-z-index: $base_project_layer + 2;
+$layer-modal-z-index: $base_project_layer + 3;
+$layer-popover-z-index: $base_project_layer + 4;
+$layer-tooltip-z-index: $base_project_layer + 5;

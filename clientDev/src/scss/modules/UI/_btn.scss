@@ -1,0 +1,49 @@
+@import '../../utils/functions',
+	'../../utils/variables',
+	'../../utils/breakpoints',
+	'../../utils/mixins/arrow',
+	'../../utils/mixins/border',
+	'../../utils/mixins/cleanBtn',
+	'../../utils/mixins/btn';
+@include btn(
+	get-theme-color('btn-default'),
+	get-theme-color('font-base'), 
+	get-font-size('btn'), 
+	get-theme-shadow('btn'),
+);
+
+.modal__user-search-btn{
+ 	margin-top:1rem;
+}
+.btn__loadMore{
+	
+	font-size:get-font-size('h4');
+	margin: 1rem 0;
+	transition: background-color $transition-time;
+}
+.btn--return{
+	background-color: get-theme-color('invalid');
+	border-color: get-theme-color('invalid');
+}
+.btn--collapse-list{
+	position: static;
+	padding:0;
+	background-color: transparent;
+	box-shadow: none;;
+	&.--active span::after{
+		display:none;
+
+	}
+	&.--active span::before{
+		color:get-theme-color('background--primary');
+	}
+}
+@media only screen and (max-width:$tablet){
+	.btn{
+		padding:1.1rem 0.8rem;
+		&:hover{
+			transform: none;
+			color:none;
+		}
+	}
+}

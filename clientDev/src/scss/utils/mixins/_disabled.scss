@@ -1,0 +1,13 @@
+@mixin disabled {
+	background-color: get-theme-color('not-allowed');
+	color:get-theme-color('font-base');
+	border-color: get-theme-color('not-allowed');
+	pointer-events: none;
+	cursor:not-allowed;
+	&:hover{
+		transform:none;
+	}
+}
+.--disabled{
+	@include disabled;
+}

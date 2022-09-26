@@ -1,0 +1,22 @@
+@mixin scroll($width: 2px, $thumbheight:50%, $radius:5px, $trackcolor: #000,$thumbcolor:#000,$shadow) {
+	&::-webkit-scrollbar {
+		width: $width;
+		height:100%;
+		background-color: $trackcolor;
+		padding:1rem;
+		//background-color: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		width:100%;
+		box-shadow: $shadow;
+		max-height:$thumbheight;
+		border-radius:$radius;
+		background-color: $thumbcolor;
+	}
+	&::-webkit-scrollbar-button{
+		display:none;
+	}
+	scrollbar-color: $thumbcolor $trackcolor;
+	scrollbar-width: thin;
+
+}

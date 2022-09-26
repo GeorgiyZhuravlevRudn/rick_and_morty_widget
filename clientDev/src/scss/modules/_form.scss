@@ -1,0 +1,235 @@
+@import '../utils/mixins/inputField';
+.form{
+	width:100%;
+	height:100%;
+	display:flex;
+	flex-direction: column;
+	padding: 2rem;
+	gap:get-spacer(3);
+	background-color: transparent;
+}
+.form__title{
+	font-size: get-font-size('h3');
+	margin:0;
+	padding:0;
+	font-family: $element-font;
+}
+.form__field {
+	@include inputField;
+}
+.form__field-span{
+	position:absolute;
+	bottom:-(get-font-size('spanElement') + 0.1rem);
+	left:0.4rem;
+	opacity:0;
+	font-size: get-font-size('spanElement');
+	font-weight: 500;
+	transition: all $transition-time ease;
+	&--invalid{
+		color:get-theme-color('invalid');
+		opacity:1;
+	}
+}
+.form__field--select,
+.form__field--date,
+.form__field--time{
+	padding:0 1.5rem;
+	cursor:pointer;
+}
+.form__field--checkbox{
+	margin-right:0.5rem;
+	&.--disabled + label{
+		color:get-theme-color('font--not-allowed');
+		cursor:not-allowed;
+	}
+}
+.form__field--select{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	& .option.--selected{
+		background-color: get-theme-color('background--input');
+		
+	}
+	& .option:hover{
+		background-color: rgb(251, 1, 1);
+		cursor: pointer;
+	}
+}
+.form__field--clickboxes{
+	&-container{
+		display:flex;
+		justify-content: flex-start;
+		width:auto;
+		height:auto;
+		@include custom-border(3px, 'border--input', 'full');
+		border-radius: 0.3rem;
+		padding:0.2rem;
+	}
+	&-item{
+		transition: all $transition-time ease;
+		font-size: 0.8rem;
+		position:relative;
+		border-radius: 0.4rem;
+		text-align: center;
+		width:auto;
+		padding:0.5rem;
+	}
+	&-item:hover{
+		cursor:pointer;
+		//transform: translateY(-0.2rem);
+		background-color:get-theme-color('border--input');
+	}
+	&-item--active{
+		background-color:get-theme-color('border--input');
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+	}
+	&-item__span{
+		position: absolute;
+		top:-0.5rem;
+		right:-0.5rem;
+		border-radius: 50%;
+		padding: 0.3rem 0.7rem;
+		text-align: center;
+		z-index: 10;
+		color: #fff;
+		font-weight:bold;
+		//@include custom-border(0.1rem, 'font--not-allowed','full');
+		background-color: get-theme-color('btn-default');
+	}
+	&-item__span:hover{
+		border-color: get-theme-color('valid');
+	}
+}
+.form__field--query__list{
+	position: absolute;
+	//bottom:0;
+	left:0;
+	display:flex;
+	width:100%;
+	z-index:get-z-index('modal');
+	flex-direction: column;
+	padding: 1rem;
+	background-color: #fff;
+	box-shadow: 0 10px 30px 0 rgb(0 60 179 / 5%);
+	& .content-list__item{
+		padding:0.5rem;
+		border-radius: 0.3rem;
+	}
+	& .content-list__item:hover{
+		cursor:pointer;
+		background-color: rgb(243, 243, 243);
+	}
+}
+.form__user-profile-container{
+	width:100%;
+}
+.form__field-wrap {
+	position: relative;
+	padding: 0;
+	width: 100%;
+}
+.form__field-wrap:not(:first-child) {
+	margin-top: 1rem;
+}
+.form__field-label {
+	position: absolute;
+	top: 1.2rem;
+	left: 1.2rem;
+	transition: all $transition-time ease;
+	pointer-events: none;
+	color:get-theme-color('font-input');
+	text-transform: capitalize;
+}
+.form__field-label--active {
+	font-size: 1rem;
+	color: get-theme-color('font--not-allowed');
+	transform: translateY(-1rem);
+}
+.form__field-container{
+	//background-color: get-theme-color('background--modal');
+	//border-radius: $border-radius;
+	//@include custom-border(0.5rem,'border--primary', 'rl');
+}
+.form__block{
+	display: flex;
+	flex-direction: column;
+	&-fields{
+		display: flex;
+		//width: 70%;
+		justify-content:space-between;
+		gap: get-spacer(5);	
+		& > div{
+			width:100%;
+		}
+	
+	}
+	&-title{
+		margin:1.2rem 0;
+		margin-bottom:0.6rem;
+		font-size: get-font-size('h5') + 0.1rem;
+		font-weight: 500;
+		font-family: $element-font;
+	}
+	&-docs{
+		& .form__block-title{
+			position:relative;
+		
+		}
+		& .btn{
+			position:absolute;
+			width:2.5rem;
+			height: 2.5rem;
+			top:-2.7rem;
+			right:58%;
+			& svg{
+				width:1rem;
+				height: 1rem;
+			}
+		}
+	}
+	&-address{
+		& .form__field-container:last-child{
+			min-width:87%;
+		}
+	}
+}
+.form__header{
+	text-align: center;
+}
+.form__link{
+	@include custom-border(0.1rem, 'border--default', 'b');
+	padding:0.2rem 0;
+	transition: border $transition-time ease;
+	&:hover{
+		@include custom-border(0.1rem, 'border--primary', 'b');
+	}
+}
+@media only screen and (max-width:$tablet){
+	.form{
+		gap:0;
+		padding:0;
+		min-width:100%;
+		&__block .btn{
+			position:static;
+			width:100%;
+		}
+		&__block-fields{
+			display: flex;
+			flex-direction: column;
+			gap:0;
+		}
+		&__field--clickboxes-container{
+			display:flex;
+			flex-direction: column;
+			gap:0;
+		}
+	}
+	.form__field{
+		//padding:0;
+		&-container,
+		&--clickboxes-item:not(:first-child){
+			margin-top:get-spacer(3);
+		}
+	}
+}

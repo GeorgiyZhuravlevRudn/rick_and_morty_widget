@@ -1,0 +1,16 @@
+.image-tg,
+.image-whatsapp,
+.image-phone{
+	font-size: 2.6rem;
+	color:#fff;
+	font-weight: 400;
+}
+.image-phone{
+	transform: rotate(270deg);
+}
+.image-failure{
+	color:get-theme-color('invalid');
+}
+.image-success{
+	color:get-theme-color('valid');
+}

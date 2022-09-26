@@ -1,0 +1,10 @@
+@mixin active{
+	background-color: get-theme-color('input--disabled');
+	color:get-theme-color('border--primary');
+	border-color: get-theme-color('border--primary');
+
+}
+
+.--active{
+	@include active;
+}

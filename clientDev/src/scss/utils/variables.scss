@@ -1,0 +1,119 @@
+$theme-colors: (
+	'background--primary': #fff,
+	'background--black':#2D2C2A,
+	'background--red':#FF3535,
+	'background--modal':#005659,
+	'background--character':#63b4bfb8,
+	'background--header':#ffffff,
+	'background--input':#63b4bfb8,
+	'background--modal-wrap':#f9fbfe56,
+	'background--not-allowed':#D93740,
+	'background--navbar':#747b7c,
+	'background--li':#F7F7F7,
+	'font-base':#000,
+	'font-btn':#D9D9D9,
+	'font-input':#01383A,
+	'font--not-allowed':#022627,
+	'font-navbar':#ffffff,
+	'scrollbar':#b9b9b9,
+	'btn':#D9D9D9,
+  	'btn-default': #fff,
+  	'btn-default--active': #BAD003,
+	'btn-close': #D93740,
+	'btn-close--active': #ff1616,
+	'btn-span-color':black,
+	'border--primary':#c7cbd3,
+	'border--btn':#FF3535,
+	'border--active':#6cdd62,
+	'border--input':  #00AFC7,
+	'border--default': transparent,
+	'input--disabled':#f2f2f2f2,
+	'valid': #86ff7c,
+  	'invalid':#FB5C65,
+	'not-allowed':#656464,
+);
+$theme-shadows: (
+	'yellow': 6px 6px 40px 5px #FF3535,
+	'btn': 0px 0px 5px 0px #FF3535,
+	'btn--active': 0px 0px 10px 0px #FF3535,
+);
+$theme-gradients:(
+	'background-grad--modal':linear-gradient(330deg, get-theme-color('element--active') -60%,  get-theme-color('background--modal') 35%, get-theme-color('element--active') 160%),
+	'background-grad--navbar':linear-gradient(240deg, get-theme-color('navbar') 60%, get-theme-color('element--active') 160%),
+);
+$spacer: 1rem;
+$theme-spacers: (
+  1: ($spacer * 0.25),
+  2: ($spacer * 0.5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 2),
+  6: ($spacer * 3),
+);
+$z-index: 10;
+$z-index:(
+	'navbar-wrap': ($z-index * 10),
+	'navbar': ($z-index * 12),
+	'navbar-btn': ($z-index*15),
+	'header-wrap':($z-index * 20),
+	'header':($z-index * 22),
+	'header-btn':($z-index * 25),
+	'modal-wrap': ($z-index * 85),
+	'modal': ($z-index * 90),
+	'modal-btn': ($z-index * 93),
+);
+$font-family:'Styrene A Web', sans-serif;
+$title-font:'Styrene A Web', sans-serif;
+$element-font:'Styrene A Web', sans-serif;
+$header-height: 5rem;
+$header-height--mobile: 6rem;
+$navbar-width: 7rem;
+$font-size-base: 1rem;
+$field-height: 3.75rem;
+$btn--interactive-size:4rem;
+
+$navbar-width:(
+	'default':$navbar-width,
+	'USER': 16rem,
+);
+$font-size: (
+	btn:  $font-size-base * 0.9,
+	p: $font-size-base * 1.15,
+	li:  $font-size-base * 1.15,
+	h1: $font-size-base * 4,
+	h2: $font-size-base * 3,
+	h3: $font-size-base * 2,
+	h4: $font-size-base * 1.5,
+	h5: $font-size-base * 1.25,
+	h6: $font-size-base,
+	base: $font-size-base,
+	navbarItem: $font-size-base*0.8,
+	spanElement: $font-size-base*0.8,
+);
+$border-radius: 0.1rem;
+$border-radius--btn: calc($border-radius * 2);
+$transition-time: .3s;
+$box-shadow: 0 0 0 #fff;
+
+
+// container
+$width_container: calc(100% - 8rem);
+$width_container_tablet: calc(100% - 8rem);
+$width_container_mobile: calc(100% - 4rem);
+
+
+$margin_container: (
+	desktop: 12rem,
+	tablet: 6rem,
+	mobile: 3rem,
+);
+$margin_container_tablet: 6rem;
+$main-padding: 1rem;
+$padding:(
+	s: $main-padding,
+	m: $main-padding*2,
+	l: $main-padding*3,
+	xl: $main-padding*5,
+);
+// gutters
+$width_gutter: 1.6rem;

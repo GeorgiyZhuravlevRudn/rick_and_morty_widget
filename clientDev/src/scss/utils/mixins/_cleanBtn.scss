@@ -1,0 +1,81 @@
+@mixin clean-btn($size: 1rem, $pseudoSpanLength:0.6em, $spanColor: black, $spanFigure: 'add'){
+	$spanSize: calc($size - 20%);
+	position: absolute;
+	padding: 0;
+	border-radius: 50%;
+	width: $size;
+	height: $size;
+	background-color: transparent;
+	&:hover{
+		background-color: transparent;
+		& > span::before, 
+		& > span::after{
+			background-color: $spanColor;
+		}
+	}
+	& > span {
+		position: relative;
+		width: $spanSize;
+		height: $spanSize;
+	}	
+	& > span::before, 
+	& > span::after {
+		position: absolute;
+		top:calc( $spanSize / 4);
+		content: "";
+		width:0.17rem;
+		height: $pseudoSpanLength;
+		background-color:$spanColor;
+	}
+	@if $spanFigure == 'add'{
+		& > span::before{
+			transform: rotate(90deg);
+		}
+		& > span::after{
+			transform: rotate(0deg);
+		}
+	} @else if $spanFigure == 'complete' {
+		
+		& > span::before,
+		&> span::after{
+			display:none;
+		}
+		&::after{
+			position: absolute;
+			top: calc($spanSize / 4) ;
+			width: calc($pseudoSpanLength / 1.5 );
+			height:  $pseudoSpanLength;
+			border-right: 0.06rem solid black;
+			border-bottom: 0.06rem solid black;
+			transform: rotate(45deg);
+			content: '';
+		}
+		&:hover{
+			&::after{
+				border-color: $spanColor;
+			}
+		}
+	} @else if $spanFigure == 'rm' {
+		& > span::after,
+		& > span::before{
+			display: none;
+		}
+	}  @else if $spanFigure == 'rm--field' {
+		& > span::before{
+			transform: rotate(90deg);
+		}
+		& > span::after{
+			height:0;
+			transform: rotate(-45deg);
+		}
+		&:hover{
+			& > span::after,
+			& > span::before{
+				background-color:$spanColor;
+			}
+			&>span::after{
+				height: $pseudoSpanLength;
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@import '../../utils/functions',
+	'../../utils/breakpoints',
+	'../../utils/variables',
+	'../../utils/mixins/modalWindow';
+
+@include modalWindow;
+.modal__notification{
+	z-index:1000;
+}
+/** Modal sizes*/
+.modal--small{
+	max-width:720px;
+}
+.position--right{
+	height: auto;
+	min-height: 100%;
+}
+.character-info{
+	max-width:fit-content;
+}
+@media only screen and (max-width:$tablet){
+	.modal{
+		min-height: 100vh;
+	}
+	.modal__contact,
+	.modal__notification{
+		min-height:16rem;
+		//margin:15rem 0;
+		justify-content: center;
+		//top:0;
+	}
+	.modal__notification{
+		padding:1.5rem;
+		
+	}
+
+}

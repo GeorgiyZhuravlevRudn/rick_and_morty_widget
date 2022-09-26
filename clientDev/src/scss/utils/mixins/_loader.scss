@@ -1,0 +1,47 @@
+@mixin loader-base($loaderColor: #fff) {
+	position: absolute;
+	top: calc(50% - 38px);
+	left: calc(50% - 38px);
+	z-index: 3;
+	width: 100px;
+	height: 100px;
+	border: 11px solid rgba(255, 255, 255, 0.2);
+	border-left-color: $loaderColor;
+	border-radius: 50%;
+	animation: loader-animation 1.1s infinite linear;
+  }
+  
+  .loader {
+	@include loader-base();
+  }
+  
+  @mixin loader($loaderColor: #fff, $overlayColor: #000, $opacity: 0.2) {
+	&::after {
+	  @include loader-base();
+	  content: '';
+	}
+  
+	&::before {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  z-index: 2;
+	  display: block;
+	  width: 100%;
+	  height: 100%;
+	  background: $overlayColor;
+	  opacity: $opacity;
+	  content: '';
+	}
+  }
+  
+  @keyframes loader-animation {
+	0% {
+	  transform: rotate(0deg);
+	}
+  
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+  

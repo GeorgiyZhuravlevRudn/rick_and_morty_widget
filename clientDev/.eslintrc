@@ -1,0 +1,16 @@
+{
+	"extends" : [
+		"airbnb-base",
+		"plugin:react/recommended"
+	],
+	"parser":"@babel/eslint-parser",
+	"env":{
+			"browser":true,
+			"jquery": true
+	},
+	"rules": {
+			"import/no-extraneous-dependencies": ["error", {"devDependencies": ["gulpfile.babel.js", "gulp/**/*"]}],
+			"indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
+			"no-tabs": 0
+	}
+}

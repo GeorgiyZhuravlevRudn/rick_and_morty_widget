@@ -1,0 +1,30 @@
+@import '../../utils/functions.scss';
+@mixin custom-border($width: 1px, $color:'border--default', $sides:'full'){
+	@if $sides == 'full' {
+		border: $width get-theme-color($color) solid;
+	} @else if $sides == 'rl' {
+		border: $width get-theme-color($color) solid;
+		border-width: 0 $width;
+	} @else if $sides == 'tb' {
+		border: $width get-theme-color($color) solid;
+		border-width: $width 0;
+	} @else if $sides == 'tl' {
+		border: 0 get-theme-color($color) solid;
+		border-width: $width 0 0 $width ;
+	}@else if $sides == 'br' {
+		border: 0 get-theme-color($color) solid;
+		border-width: 0 $width $width 0;
+	}@else if $sides == 't' {
+		border: 0 get-theme-color($color) solid;
+		border-width: $width 0 0 0;
+	} @else if $sides == 'b' {
+		border:0 get-theme-color($color) solid;
+		border-width: 0 0 $width 0;
+	}@else if $sides == 'r' {
+		border:0 get-theme-color($color) solid;
+		border-width: 0 $width 0  0;
+	}@else if $sides == 'l' {
+		border:0 get-theme-color($color) solid;
+		border-width: 0 0 0 $width ;
+	}
+}

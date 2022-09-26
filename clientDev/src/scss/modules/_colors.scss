@@ -1,0 +1,8 @@
+.--red{
+	background-color: get-theme-color('invalid');
+	border-color:get-theme-color('invalid');
+}
+.--green{
+	background-color: get-theme-color('valid');
+	border-color: get-theme-color('valid');
+}

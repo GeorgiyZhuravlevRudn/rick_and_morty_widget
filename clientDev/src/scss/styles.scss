@@ -1,0 +1,45 @@
+//@use "sass:map";
+@import './vendor';// reason is - normalize css
+@import '_utils';
+@import './base/base';
+@import './layout/**/*';
+@import './modules/**/*';
+@import './modules/*';
+
+@include font('Styrene A Web','StyreneAWeb','StyreneAWeb-Bold',700);
+@include font('Styrene A Web','StyreneAWeb','StyreneAWeb-Medium',500);
+@include font('Styrene A Web','StyreneAWeb','StyreneAWeb-Regular',400);
+@include font('Styrene A Web','StyreneAWeb','StyreneAWeb-Thin',300);
+
+body, html{
+	display:block;
+	font-family:$font-family;
+	color:get-theme-color('font-base');
+	background-color: get-theme-color('background--primary');
+	@include scroll(0.7rem,3rem,5px,transparent,get-theme-color('scrollbar'),none);
+	/*FireFox*/
+	scrollbar-width: thin;
+	/*IE10+*/
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+	display: none;
+}
+.user__wrap{
+	height: auto;
+	min-height:100vh;
+}
+.user__wrap{
+	background-color: get-theme-color('background--primary');
+}
+.user__content{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.link{
+	text-decoration: underline;
+	font-weight: bold;
+	color:get-theme-color('btn-default');
+}
+@import './media/**/*';
